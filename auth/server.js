@@ -20,6 +20,13 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 
+/*********************************************** Routes ******************************************************/
+
+
+
+
+
+
 // Server listening 
 module.exports = {
     server : app,
