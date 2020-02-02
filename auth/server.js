@@ -3,6 +3,11 @@
 const express = require('express');
 const morgan = require('morgan');
 
+// Auth 
+const basicAuth = require('./basic-mid-auth.js');
+const users = require('./users.js');
+
+
 const app = express();
 
 // use logger 
@@ -22,9 +27,27 @@ app.use(morgan('dev'));
 
 /*********************************************** Routes ******************************************************/
 
+app.post('/signup',(req,res) =>
+{
+    users.save(req.body)
+    .then(user => {
+      let token = users.genToken(user);
+      res.status(200).send(token);
+    })
+    .catch(err => console.error(err));
 
+}); // end of signup route 
 
+app.post('/signin',basicAuth,(req,res) =>
+{
+    res.status(200).send(req.token);
+}); // end of signup route 
 
+// out all users list in db 
+app.get('/users',basicAuth,(req,res) =>
+{
+    res.status(200).json(users.list);
+}); // end of signup route 
 
 
 // Server listening 

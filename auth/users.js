@@ -46,3 +46,8 @@ users.genToken = function(user){
     let token = jwt.sign({ username:user.username},SECRET);
     return token;
 } // end of genToken function 
+
+// make the db as a property from users 
+users.list = () => db;
+
+module.exports = users;
