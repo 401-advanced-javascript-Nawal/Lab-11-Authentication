@@ -3,8 +3,8 @@
 ### Author: Nawal Suliman 
 
 ### Links and Resources
-- [submission PR](https://github.com/401-advanced-javascript-Nawal/Lab-09-API-ServerVir/pull/1)
-- [ci/cd](https://github.com/401-advanced-javascript-Nawal/Lab-09-API-ServerVir/actions) (GitHub Actions)
+- [submission PR](https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/pull/1)
+- [ci/cd](https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/actions) (GitHub Actions)
 - [swagger](https://inspector.swagger.io/builder)
 
 ### Setup
@@ -23,4 +23,4 @@ i.e.
 - nodemon  
 
 #### UML
-
+https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/Aouth/20200202_175336.jpg
