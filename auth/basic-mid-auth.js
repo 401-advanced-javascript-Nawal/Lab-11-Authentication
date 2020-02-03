@@ -29,6 +29,6 @@ module.exports = (req,res,next) =>{
         })
         .catch(err =>
             {
-                next(' Invalid User Error : ', err);
+                next(' Invalid User Error ', err);
             })
 } // end of export 
