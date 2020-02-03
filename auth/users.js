@@ -14,6 +14,7 @@ let db = {};
 // each user information 
 let users = {};
 
+// for sign Up
 users.save = async function(userObjInfo){
 
     // check if the user on our db 
@@ -33,6 +34,7 @@ users.save = async function(userObjInfo){
 } // end of users save function 
 
 
+// For sign In 
 // give auth to user 
 users.authenticateUser = async function(user,pass){
     // bring the user's data from DB then check the validity of it 
@@ -41,6 +43,7 @@ users.authenticateUser = async function(user,pass){
     return valid ? db[user]:Promise.reject();
 } // end of authenticateUser function 
 
+// for both ( signin & signup )
 // generate a new token 
 users.genToken = function(user){
     let token = jwt.sign({ username:user.username},SECRET);
