@@ -8,7 +8,7 @@
 - [swagger](https://inspector.swagger.io/builder)
 
 ### Setup
-- install the needed Dependencies JEST ESLINT CORS DOTENV MORGAN MONGOOSE EXPRESS  and use npm run test to run it 
+- install the needed Dependencies JEST ESLINT base-64 bcryptjs jsonwebtoken DOTENV MORGAN MONGOOSE EXPRESS  and use npm run test to run it 
 
 #### `.env` requirements (where applicable)
 i.e.
