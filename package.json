@@ -2,12 +2,12 @@
   "name": "Lab-11-Authentication",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "lint": "eslint '**/*.js'",
     "test": "jest --verbose --coverage",
     "test-watch": "jest --watchAll --verbose --coverage",
-    "start": "nodemon index.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
