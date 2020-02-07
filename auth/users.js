@@ -1,5 +1,6 @@
 'use strict';
 
+const mongoose = require('mongoose');
 // to encrypt the password 
 const bcryptjs = require('bcryptjs');
 // make the output as a json format 
@@ -10,9 +11,11 @@ let SECRET='NAR9288';
 // dotenv.config();
 
 // save all users
-let db = {};
+let users = new mongoose();
+
+// let db = {};
 // each user information 
-let users = {};
+// let users = {};
 
 // for sign Up
 users.save = async function(userObjInfo){
@@ -53,4 +56,4 @@ users.genToken = function(user){
 // make the db as a property from users 
 users.list = () => db;
 
-module.exports = users;
+module.exports = mongoose.model( 'users',users ) ;
