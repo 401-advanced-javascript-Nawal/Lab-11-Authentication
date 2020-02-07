@@ -1,6 +1,6 @@
 'use strict';
 
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 // to encrypt the password 
 const bcryptjs = require('bcryptjs');
 // make the output as a json format 
@@ -22,40 +22,40 @@ let users = {};
 // for sign Up
 users.save = async function(userObjInfo){
 
-    // check if the user on our db 
-    if(!db[userObjInfo.username]){
-        // hash the password and save it on our db by username object 
-        // 5 it is the complexity or salt for hash complication hashing 
-        userObjInfo.password = await bcryptjs.hash(userObjInfo.password,5);
+  // check if the user on our db 
+  if(!db[userObjInfo.username]){
+    // hash the password and save it on our db by username object 
+    // 5 it is the complexity or salt for hash complication hashing 
+    userObjInfo.password = await bcryptjs.hash(userObjInfo.password,5);
 
-        // save the whole userinfo( username, password ) into DB by the username 
-        db[userObjInfo.username] = userObjInfo;
+    // save the whole userinfo( username, password ) into DB by the username 
+    db[userObjInfo.username] = userObjInfo;
 
-        return userObjInfo;
-    } // end of if statement 
+    return userObjInfo;
+  } // end of if statement 
 
-    return Promise.reject();
+  return Promise.reject();
 
-} // end of users save function 
+}; // end of users save function 
 
 
 // For sign In 
 // give auth to user 
 users.authenticateUser = async function(user,pass){
-    // bring the user's data from DB then check the validity of it 
-    let valid = await bcryptjs.compare(pass,db[user].password);
-    console.log('valid : ', valid);
-    // if user exist  return it , otherwise reject 
-    return valid ? db[user]:Promise.reject();
-} // end of authenticateUser function 
+  // bring the user's data from DB then check the validity of it 
+  let valid = await bcryptjs.compare(pass,db[user].password);
+  console.log('valid : ', valid);
+  // if user exist  return it , otherwise reject 
+  return valid ? db[user]:Promise.reject();
+}; // end of authenticateUser function 
 
 // for both ( signin & signup )
 // generate a new token 2-Factor Layer 
 users.genToken = function(user){
-    let token = jwt.sign({ username:user.username},process.env.SECRET);
-    console.log('token : ', token);
-    return token;
-} // end of genToken function 
+  let token = jwt.sign({ username:user.username},process.env.SECRET);
+  console.log('token : ', token);
+  return token;
+}; // end of genToken function 
 
 // make the db as a property from users 
 users.list = () => db;

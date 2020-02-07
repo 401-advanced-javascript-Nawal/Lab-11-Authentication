@@ -27,7 +27,7 @@ app.use(morgan('dev'));
 
 app.post('/signup',(req,res) =>
 {
-    users.save(req.body)
+  users.save(req.body)
     .then(user => {
       let token = users.genToken(user);
       res.status(200).send(token);
@@ -38,25 +38,25 @@ app.post('/signup',(req,res) =>
 
 app.post('/signin',basicAuth,(req,res) =>
 {
-    res.status(200).send(req.token);
+  res.status(200).send(req.token);
 }); // end of signin route 
 
 // out all users list in db 
 app.get('/users',basicAuth,(req,res) =>
 {
-    res.status(200).json(users.list);
+  res.status(200).json(users.list);
 }); // end of signup route 
 
 
-// app.use(err404);
-// app.use(err500);
+app.use(err404);
+app.use(err500);
 
 
 // Server listening 
 module.exports = {
-    server : app,
-    start : port => {
-      let PORT = port || process.env.PORT || 8080;
-      app.listen(PORT , ()=> console.log(`The App Is a live and Listening on Port No.${PORT}`));
-    },
-  };
+  server : app,
+  start : port => {
+    let PORT = port || process.env.PORT || 8080;
+    app.listen(PORT , ()=> console.log(`The App Is a live and Listening on Port No.${PORT}`));
+  },
+};
