@@ -11,11 +11,9 @@ let SECRET='NAR9288';
 // dotenv.config();
 
 // save all users
-let users = new mongoose();
-
 // let db = {};
 // each user information 
-// let users = {};
+let users = {};
 
 // for sign Up
 users.save = async function(userObjInfo){
@@ -42,14 +40,16 @@ users.save = async function(userObjInfo){
 users.authenticateUser = async function(user,pass){
     // bring the user's data from DB then check the validity of it 
     let valid = await bcryptjs.compare(pass,db[user].password);
+    console.log('valid : ', valid);
     // if user exist  return it , otherwise reject 
     return valid ? db[user]:Promise.reject();
 } // end of authenticateUser function 
 
 // for both ( signin & signup )
-// generate a new token 
+// generate a new token 2-Factor Layer 
 users.genToken = function(user){
     let token = jwt.sign({ username:user.username},SECRET);
+    console.log('token : ', token);
     return token;
 } // end of genToken function 
 

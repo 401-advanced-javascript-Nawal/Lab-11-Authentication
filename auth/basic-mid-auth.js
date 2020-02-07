@@ -17,15 +17,20 @@ module.exports = (req,res,next) =>{
 
     // take the 2nd element in the request header to divide the username and password to be able to created aanew token after that  
     let auth2ndElement = req.headers.authorization;
+    console.log('auth2ndElement : ', auth2ndElement);
     let basic = auth2ndElement.split(' ').pop();
+    console.log('basic : ', basic);
 
     // pass and username that the inside and entered by user when he want to login again  
-    // take the pass and the username 
+    // take the pass and the username (destruction) username:password 
     let [user,pass] = base64.decode(basic).split(':');
+    console.log('[user,pass] : ', [user,pass]);
 
     users.authenticateUser(user,pass)
         .then(isValidUser => {
+            console.log('isValidUser : ', isValidUser);
             req.token = users.genToken(isValidUser);
+            console.log('req.token : ', req.token);
         })
         .catch(err =>
             {
