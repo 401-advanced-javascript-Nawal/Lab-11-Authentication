@@ -6,7 +6,6 @@ const morgan = require('morgan');
 // Auth 
 const router = require('./routes.js');
 
-
 const app = express();
 
 // use logger 
@@ -21,30 +20,6 @@ const err500 = require('../middleware/500.js');
 app.use(express.json());
 app.use(morgan('dev'));
 
-
-/*********************************************** Routes ******************************************************/
-
-// app.post('/signup',(req,res) =>
-// {
-//   users.save(req.body)
-//     .then(user => {
-//       let token = users.genToken(user);
-//       res.status(200).send(token);
-//     })
-//     .catch(err => console.error(err));
-
-// }); // end of signup route 
-
-// app.post('/signin',basicAuth,(req,res) =>
-// {
-//   res.status(200).send(req.token);
-// }); // end of signin route 
-
-// // out all users list in db 
-// app.get('/users',basicAuth,(req,res) =>
-// {
-//   res.status(200).json(users.list);
-// }); // end of signup route 
 
 app.use(router);
 
