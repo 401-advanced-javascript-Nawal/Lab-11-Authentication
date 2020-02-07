@@ -16,9 +16,9 @@ module.exports = (req,res,next) =>{
     }
 
     // take the 2nd element in the request header to divide the username and password to be able to created aanew token after that  
-    let auth2ndElement = req.headers.authorization;
-    console.log('auth2ndElement : ', auth2ndElement);
-    let basic = auth2ndElement.split(' ').pop();
+    // let auth2ndElement = req.headers.authorization;
+    // console.log('auth2ndElement : ', auth2ndElement);
+    let basic = req.headers.authorization.split(' ').pop();
     console.log('basic : ', basic);
 
     // pass and username that the inside and entered by user when he want to login again  

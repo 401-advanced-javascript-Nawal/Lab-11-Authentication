@@ -22,33 +22,34 @@ const err500 = require('../middleware/500.js');
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.use(err404);
-app.use(err500);
+
+/*********************************************** Routes ******************************************************/
+
+app.post('/signup',(req,res) =>
+{
+    users.save(req.body)
+    .then(user => {
+      let token = users.genToken(user);
+      res.status(200).send(token);
+    })
+    .catch(err => console.error(err));
+
+}); // end of signup route 
+
+app.post('/signin',basicAuth,(req,res) =>
+{
+    res.status(200).send(req.token);
+}); // end of signin route 
+
+// out all users list in db 
+app.get('/users',basicAuth,(req,res) =>
+{
+    res.status(200).json(users.list);
+}); // end of signup route 
 
 
-// /*********************************************** Routes ******************************************************/
-
-// app.post('/signup',(req,res) =>
-// {
-//     users.save(req.body)
-//     .then(user => {
-//       let token = users.genToken(user);
-//       res.status(200).send(token);
-//     })
-//     .catch(err => console.error(err));
-
-// }); // end of signup route 
-
-// app.post('/signin',basicAuth,(req,res) =>
-// {
-//     res.status(200).send(req.token);
-// }); // end of signup route 
-
-// // out all users list in db 
-// app.get('/users',basicAuth,(req,res) =>
-// {
-//     res.status(200).json(users.list);
-// }); // end of signup route 
+// app.use(err404);
+// app.use(err500);
 
 
 // Server listening 

@@ -5,15 +5,19 @@ const mongoose = require('mongoose');
 const bcryptjs = require('bcryptjs');
 // make the output as a json format 
 const jwt = require('jsonwebtoken');
-
-let SECRET='NAR9288';
+// let SECRET='NAR9288';
 // const dotenv = require('dotenv');
 // dotenv.config();
 
 // save all users
-// let db = {};
+let db = {};
 // each user information 
 let users = {};
+// const users = new mongoose.Schema({
+//     username: { type: String, required: true },
+//     password: { type: String, required: true },
+//   });
+// console.log('users : ', users);
 
 // for sign Up
 users.save = async function(userObjInfo){
@@ -48,7 +52,7 @@ users.authenticateUser = async function(user,pass){
 // for both ( signin & signup )
 // generate a new token 2-Factor Layer 
 users.genToken = function(user){
-    let token = jwt.sign({ username:user.username},SECRET);
+    let token = jwt.sign({ username:user.username},process.env.SECRET);
     console.log('token : ', token);
     return token;
 } // end of genToken function 
@@ -56,4 +60,4 @@ users.genToken = function(user){
 // make the db as a property from users 
 users.list = () => db;
 
-module.exports = mongoose.model( 'users',users ) ;
+module.exports = users;
