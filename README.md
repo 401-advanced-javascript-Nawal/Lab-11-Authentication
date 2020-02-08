@@ -3,9 +3,8 @@
 ### Author: Nawal Suliman 
 
 ### Links and Resources
-- [submission PR](https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/pull/1)
+- [submission PR](https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/pull/4)
 - [ci/cd](https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/actions) (GitHub Actions)
-- [swagger](https://inspector.swagger.io/builder)
 
 ### Setup
 - install the needed Dependencies JEST ESLINT base-64 bcryptjs jsonwebtoken DOTENV MORGAN MONGOOSE EXPRESS SUPERAGENT  and use npm run test to run it 

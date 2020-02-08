@@ -5,7 +5,7 @@ const base64 = require('base-64');
 
 const users = require('./users.js');
 
-// function to attch the base64 password into request headers as a property 
+// function to attach the base64 password into request headers as a property 
 module.exports = (req,res,next) =>{
 
   console.log('req.headers.authorization : ', req.headers.authorization);
