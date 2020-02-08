@@ -64,7 +64,7 @@ async function tokenInsteadOfCode(codeEx){
     // pass response object , remote call by using .post , then used .send superagent method to send information inside a post req.body 
     let tokenGivenRes = await superagent.post(tokenAccessURL).send({
         // pass the code to get token , code ( some chars and numbers )
-        code :code ,
+        code :codeEx ,
         client_id : CLIENT_ID ,
         client_secret : CLIENT_SECRET,
         redirect_uri: SERVER_API,
@@ -75,10 +75,10 @@ async function tokenInsteadOfCode(codeEx){
     console.log('tokenGivenRes : ', tokenGivenRes);
 
     // we sent the code and the needed information so once superagent returned back the data we will take the access token we need 
-    let accessToken = tokenGivenRes.body.access_token;
-    console.log('accessToken : ', accessToken);
+    let access_token = tokenGivenRes.body.access_token;
+    console.log('accessToken : ', access_token);
 
-    return accessToken;
+    return access_token;
 } // end of tokenInsteadOfCode function 
 
 
