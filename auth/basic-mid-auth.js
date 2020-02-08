@@ -8,6 +8,8 @@ const users = require('./users.js');
 // function to attch the base64 password into request headers as a property 
 module.exports = (req,res,next) =>{
 
+  console.log('req.headers.authorization : ', req.headers.authorization);
+
   // to check if the login process is valid or not by right information login 
   if(!req.headers.authorization)
   {
@@ -32,6 +34,7 @@ module.exports = (req,res,next) =>{
       console.log('isValidUser : ', isValidUser);
       req.token = users.genToken(isValidUser);
       console.log('req.token : ', req.token);
+      next();
     })
     .catch(err =>
     {

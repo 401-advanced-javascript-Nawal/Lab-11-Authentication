@@ -1,18 +1,23 @@
 'use strict';
 
 // const mongoose = require('mongoose');
-// to encrypt the password 
+
+// service to encrypt the password 
 const bcryptjs = require('bcryptjs');
-// make the output as a json format 
+
+// make the output as a json format and gives it a unique char to our input with something secret to our app 
 const jwt = require('jsonwebtoken');
+
 // let SECRET='NAR9288';
 // const dotenv = require('dotenv');
 // dotenv.config();
 
 // save all users
 let db = {};
+
 // each user information 
 let users = {};
+
 // const users = new mongoose.Schema({
 //     username: { type: String, required: true },
 //     password: { type: String, required: true },
@@ -28,7 +33,7 @@ users.save = async function(userObjInfo){
     // 5 it is the complexity or salt for hash complication hashing 
     userObjInfo.password = await bcryptjs.hash(userObjInfo.password,5);
 
-    // save the whole userinfo( username, password ) into DB by the username 
+    // save the whole userinfo( username, password ) into DB by the username ( object of object )
     db[userObjInfo.username] = userObjInfo;
 
     return userObjInfo;
@@ -54,6 +59,7 @@ users.authenticateUser = async function(user,pass){
 users.genToken = function(user){
   let token = jwt.sign({ username:user.username},process.env.SECRET);
   console.log('token : ', token);
+  // return token to be able to access all layers of our app 
   return token;
 }; // end of genToken function 
 
