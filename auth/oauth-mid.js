@@ -25,6 +25,37 @@ console.log('CLIENT_SECRET : ', CLIENT_SECRET);
 const SERVER_API = process.env.SERVER_API;
 console.log('SERVER_API : ', SERVER_API);
 
+
+/**
+ * run all async function as we created as below 
+ */
+module.exports = async function authorize(req,res,next){
+    try{
+        // the code here from login page 
+        let code = req.query.code;
+        console.log('code in authorize function : ', code);
+
+        // give code to take token 
+        let remoteToken = await tokenInsteadOfCode(code);
+        console.log('remoteToken in authorize function : ', remoteToken);
+
+        let remoteUser = await userInfoRemotely(remoteToken);
+        console.log('remoteUser in authorize function : ', remoteUser);
+
+        let [user,token] = await getUserInfo(remoteUser);
+        req.user = user;
+        req.token = token;
+        console.log('[user,token] in authorize function : ',req.user , req.token);
+
+        next();
+    }
+    catch(err) {
+        next(' error in authorize function' , err);
+    }
+
+} // end of authorize function 
+
+
 /**
  * give github code to get token
  * @param {string} codeEx 
@@ -50,3 +81,41 @@ async function tokenInsteadOfCode(codeEx){
     return accessToken;
 } // end of tokenInsteadOfCode function 
 
+
+/**
+ * to get all my user info( username & password ) once I gave github my token 
+ * @param {string} token 
+ */
+async function userInfoRemotely(token){
+    // .set superagent method used to set headers ( user level , express app , need authorization , give it my token )
+    let userRes = await superagent.get(remoteAccessAPI)
+    .set('user-agent','express-app')
+    .set('Authorization',`token ${token}`)
+
+    // username and password 
+    console.log('userRes : ', userRes);
+
+    // what kind of data I need , jest user Info and as I asked as above in userRes , limit the user response 
+    let user = userRes.body;
+    console.log('user : ', user);
+    return user;
+} // end of userInfoRemotely function 
+
+
+async function getUserInfo(remoteUser){
+    let userRecInfo = {
+        username : remoteUser.login,
+        // security password 
+        password : 'fakepassword'
+    }
+    console.log('userRecInfo : ', userRecInfo);
+
+    let user = await users.save(userRecInfo);
+    console.log('user OAUTH : ', user);
+
+    let token = users.genToken(user);
+    console.log('token OAUTH : ', token);
+
+    return [user,token];
+
+} // end of userInfo function 

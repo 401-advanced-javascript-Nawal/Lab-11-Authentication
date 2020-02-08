@@ -45,10 +45,10 @@ router.get('/users',basicAuth,(req,res) =>
 /************************************************* OAUTH *************************************************************/
 // access pages 
 // it will be hit by HTML login tag to make a request to this route 
-// router.get('/oauth' , oauth, (req,res) =>
-// {
-//   res.status(200).send(req.token);
-// });
+router.get('/oauth' , oauth, (req,res) =>
+{
+  res.status(200).send(req.token);
+});
 
 
 
