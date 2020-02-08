@@ -19,7 +19,7 @@ const err500 = require('../middleware/500.js');
 
 app.use(express.json());
 app.use(morgan('dev'));
-
+app.use(express.static('../public/index.html'));
 
 app.use(router);
 

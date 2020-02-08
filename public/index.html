@@ -1,13 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Login Page for OAuth Application </title>
 </head>
 <body>
-    <header>
-
-    </header>
-    
+   
+    <h1> Welcome To Login Page </h1>
+    <a id="oauth" href="#"> Login To Your App </a>
 </body>
+
+<script>
+// base URL 
+let URL = 'https://github.com/login/oauth/authorize';
+
+// query strings properties 
+let options  = {
+    client_id : '1edb6e0ec37085deeb38',
+    redirect_uri : 'http://localhost:8080/oauth',
+    // I need the user info only , unless it will return all github info( repos ... etc)
+    // limit the response 
+    scope : 'read:user',
+    // app mangement , all info everytime you accessed your app 
+    state : '401oauthapp'
+}
+
+console.log('options : ', options);
+
+// build our query 
+let queryStr = Object.keys(options).map((key) => {
+    // client_id=value&redirect_uri=value.... etc 
+    // key=options[key] => name=value 
+    // encodeURIComponent => clean all chars and numbers we don't want its 
+    return `${key}=` +  encodeURIComponent(options[key]);
+}).join('&'); // end of queryStr
+
+console.log('queryStr : ', queryStr);
+
+// all URL with keys and values 
+let authURL = `${URL}?${queryStr}`;
+console.log('authURL : ', authURL);
+
+// once clicked on login , redirect me to the URL 
+let link = document.getElementById('oauth');
+link.setAttribute('href',authURL);
+</script>
+
 </html>

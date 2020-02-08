@@ -8,6 +8,9 @@ const bcryptjs = require('bcryptjs');
 // make the output as a json format and gives it a unique char to our input with something secret to our app 
 const jwt = require('jsonwebtoken');
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 // let SECRET='NAR9288';
 // const dotenv = require('dotenv');
 // dotenv.config();
