@@ -26,6 +26,7 @@ module.exports = (req,res,next) =>{
   let [user,pass] = base64.decode(basic).split(':');
   console.log('[user,pass] : ', [user,pass]);
 
+  // to make sure if the user when signin is valid or not 
   users.authenticateUser(user,pass)
     .then(isValidUser => {
       console.log('isValidUser : ', isValidUser);
