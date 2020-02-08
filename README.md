@@ -1,4 +1,4 @@
-# Lab-11-Authentication
+# Lab-12-OAuth
 
 ### Author: Nawal Suliman 
 
@@ -8,7 +8,7 @@
 - [swagger](https://inspector.swagger.io/builder)
 
 ### Setup
-- install the needed Dependencies JEST ESLINT base-64 bcryptjs jsonwebtoken DOTENV MORGAN MONGOOSE EXPRESS  and use npm run test to run it 
+- install the needed Dependencies JEST ESLINT base-64 bcryptjs jsonwebtoken DOTENV MORGAN MONGOOSE EXPRESS SUPERAGENT  and use npm run test to run it 
 
 #### `.env` requirements (where applicable)
 i.e.
@@ -26,3 +26,7 @@ i.e.
 https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/Aouth/20200202_175336.jpg
 
 # Signup & Signin 
+https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAuth/signinDone.PNG
+
+# Login 
+
