@@ -22,11 +22,11 @@ i.e.
 - npm run test
 - nodemon  
 
-#### UML
-https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/Aouth/20200202_175336.jpg
-
 # Signup & Signin 
-https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAuth/signinDone.PNG
+https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAuth/app-images/signinDone.PNG
 
 # Login 
+https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAuth/app-images/github%20authorize.PNG
+https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAuth/app-images/github%20token.PNG
 
+#### UML
