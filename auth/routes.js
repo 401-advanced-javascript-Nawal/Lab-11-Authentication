@@ -6,6 +6,9 @@ const router = express.Router();
 const basicAuth = require('./basic-mid-auth.js');
 const users = require('./users.js');
 
+const oauth = require('./oauth-mid.js');
+/************************************************* AUTH *************************************************************/
+
 
 /**
  * dynamic routing for sgin up and return Token 
@@ -37,5 +40,16 @@ router.get('/users',basicAuth,(req,res) =>
 {
   res.status(200).json(users.list);
 }); // end of signup route 
+
+
+/************************************************* OAUTH *************************************************************/
+// access pages 
+// it will be hit by HTML login tag to make a request to this route 
+router.get('/oauth' , oauth, (req,res) =>
+{
+  res.status(200).send(req.token);
+});
+
+
 
 module.exports = router;
