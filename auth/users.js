@@ -93,7 +93,7 @@ users.authenticateBearerToken = async function (token) {
   catch (err) {
     console.error('invalid user token Bearer', err);
   }
-} // end of authenticateBearerToken function 
+}; // end of authenticateBearerToken function 
 
 
 
