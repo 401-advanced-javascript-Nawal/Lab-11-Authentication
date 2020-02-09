@@ -3,7 +3,7 @@
 ### Author: Nawal Suliman 
 
 ### Links and Resources
-- [submission PR](https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/pull/4)
+- [submission PR](https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/pull/5)
 - [ci/cd](https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/actions) (GitHub Actions)
 
 ### Setup
@@ -29,4 +29,3 @@ https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAut
 https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAuth/app-images/github%20token.PNG
 
 #### UML
-https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAuth/app-images/Lab12.jpg
