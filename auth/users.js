@@ -25,8 +25,8 @@ let users = {};
 let roles = {
   user : ['read'],
   editor : ['read' , 'create' , 'update'],
-  admin : ['read' , 'create' , 'update' , 'delete']
-}
+  admin : ['read' , 'create' , 'update' , 'delete'],
+};
 
 // const users = new mongoose.Schema({
 //     username: { type: String, required: true },
@@ -101,8 +101,8 @@ users.genToken = function (user) {
 
   let userRoleInfo = {
     username : user.username,
-    capabilities : roles[user.roles]
-  }
+    capabilities : roles[user.roles],
+  };
   console.log('userRoleInfo Object : ', userRoleInfo);
 
   let token = jwt.sign(userRoleInfo, process.env.SECRET);
