@@ -7,6 +7,7 @@ const basicAuth = require('./basic-mid-auth.js');
 const users = require('./users.js');
 
 const oauth = require('./oauth-mid.js');
+const bearerAuth = require('./bearer-auth-mid.js');
 /************************************************* AUTH *************************************************************/
 
 
@@ -48,8 +49,13 @@ router.get('/users',basicAuth,(req,res) =>
 router.get('/oauth' , oauth, (req,res) =>
 {
   res.status(200).send(req.token);
-});
+}); // end of oauth route 
 
+/************************************************ BEARER AUTH *********************************************************/
+router.get('/user', bearerAuth , (req,res) => 
+{
+  res.status(200).json(req.user);
+}); // end of user route 
 
 
 module.exports = router;
