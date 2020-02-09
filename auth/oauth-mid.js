@@ -101,7 +101,10 @@ async function userInfoRemotely(token){
   return user;
 } // end of userInfoRemotely function 
 
-
+/**
+ * get user info 
+ * @param {string} remoteUser 
+ */
 async function getUserInfo(remoteUser){
   let userRecInfo = {
     username : remoteUser.login,

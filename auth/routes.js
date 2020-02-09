@@ -3,11 +3,12 @@
 const express = require('express');
 const router = express.Router();
 
-const basicAuth = require('./basic-mid-auth.js');
+// authentication process 
 const users = require('./users.js');
-
+const basicAuth = require('./basic-mid-auth.js');
 const oauth = require('./oauth-mid.js');
 const bearerAuth = require('./bearer-auth-mid.js');
+
 /************************************************* AUTH *************************************************************/
 
 
@@ -44,14 +45,19 @@ router.get('/users',basicAuth,(req,res) =>
 
 
 /************************************************* OAUTH *************************************************************/
-// access pages 
-// it will be hit by HTML login tag to make a request to this route 
+/**
+ * it will be hit by HTML login tag to make a request to this route
+ * access pages 
+ */
 router.get('/oauth' , oauth, (req,res) =>
 {
   res.status(200).send(req.token);
 }); // end of oauth route 
 
 /************************************************ BEARER AUTH *********************************************************/
+/**
+ * bearer auth 
+ */
 router.get('/user', bearerAuth , (req,res) => 
 {
   res.status(200).json(req.user);

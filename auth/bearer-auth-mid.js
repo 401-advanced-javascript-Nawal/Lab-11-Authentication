@@ -3,6 +3,9 @@
 // to use the functions inside of it 
 const users = require('./users.js');
 
+/**
+ * bearer middleware for more access tp pages 
+ */
 module.exports = (req, res, next) => {
 
   // to check if the login process is valid or not by right information login 
