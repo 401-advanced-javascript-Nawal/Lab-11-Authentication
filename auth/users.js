@@ -101,7 +101,7 @@ users.genToken = function (user) {
 
   let userRoleInfo = {
     username : user.username,
-    capabilities : roles[user.role]
+    capabilities : roles[user.roles]
   }
   console.log('userRoleInfo Object : ', userRoleInfo);
 
