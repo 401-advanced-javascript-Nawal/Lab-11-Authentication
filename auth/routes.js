@@ -63,5 +63,29 @@ router.get('/user', bearerAuth , (req,res) =>
   res.status(200).json(req.user);
 }); // end of user route 
 
+/************************************************ ACL BEARER AUTH *********************************************************/
+/**
+ * ACL bearer auth 
+ * Create 
+ */
+router.get('/carete' , bearerAuth , acl('create') , (req,res) => {
+  res.status(200).send(' Auth to create ');
+}); // end of ACL Create route
+
+/**
+ * ACL bearer auth 
+ * Update 
+ */
+router.get('/update' , bearerAuth , acl('update') , (req,res) => {
+  res.status(200).send(' Auth to update ');
+}); // end of ACL Update route
+
+/**
+ * ACL bearer auth 
+ * Delete 
+ */
+router.get('/delete' , bearerAuth , acl('delete') , (req,res) => {
+  res.status(200).send(' Auth to Delete ');
+}); // end of ACL Delete route
 
 module.exports = router;
