@@ -8,7 +8,7 @@ const users = require('./users.js');
 const basicAuth = require('./basic-mid-auth.js');
 const oauth = require('./oauth-mid.js');
 const bearerAuth = require('./bearer-auth-mid.js');
-
+const aclAuth = require('./acl-mid.js');
 /************************************************* AUTH *************************************************************/
 
 
@@ -66,25 +66,25 @@ router.get('/user', bearerAuth , (req,res) =>
 /************************************************ ACL BEARER AUTH *********************************************************/
 /**
  * ACL bearer auth 
- * Create 
+ * Create permission 
  */
-router.get('/carete' , bearerAuth , acl('create') , (req,res) => {
+router.get('/carete' , bearerAuth , aclAuth('create') , (req,res) => {
   res.status(200).send(' Auth to create ');
 }); // end of ACL Create route
 
 /**
  * ACL bearer auth 
- * Update 
+ * Update permission
  */
-router.get('/update' , bearerAuth , acl('update') , (req,res) => {
+router.get('/update' , bearerAuth , aclAuth('update') , (req,res) => {
   res.status(200).send(' Auth to update ');
 }); // end of ACL Update route
 
 /**
  * ACL bearer auth 
- * Delete 
+ * Delete permission
  */
-router.get('/delete' , bearerAuth , acl('delete') , (req,res) => {
+router.get('/delete' , bearerAuth , aclAuth('delete') , (req,res) => {
   res.status(200).send(' Auth to Delete ');
 }); // end of ACL Delete route
 

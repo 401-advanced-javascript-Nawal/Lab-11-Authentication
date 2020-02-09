@@ -21,6 +21,13 @@ let db = {};
 // each user information 
 let users = {};
 
+// to define the roles for users 
+let roles = {
+  user : ['read'],
+  editor : ['read' , 'create' , 'update'],
+  admin : ['read' , 'create' , 'update' , 'delete']
+}
+
 // const users = new mongoose.Schema({
 //     username: { type: String, required: true },
 //     password: { type: String, required: true },
@@ -63,17 +70,6 @@ users.authenticateUser = async function (user, pass) {
   return valid ? db[user] : Promise.reject();
 }; // end of authenticateUser function 
 
-/**
- * generate a new token 2-Factor Layer 
- */
-// for both ( signin & signup )
-users.genToken = function (user) {
-  let token = jwt.sign({ username: user.username }, process.env.SECRET);
-  console.log('token : ', token);
-  // return token to be able to access all layers of our app 
-  return token;
-}; // end of genToken function 
-
 
 /************************************************* BEARER AUTH *********************************************************/
 /**
@@ -94,6 +90,28 @@ users.authenticateBearerToken = async function (token) {
     console.error('invalid user token Bearer', err);
   }
 }; // end of authenticateBearerToken function 
+
+/************************************************* ACL BEARER AUTH ******************************************************/
+
+/**
+ * generate a new token 2-Factor Layer 
+ */
+// for both ( signin & signup )
+users.genToken = function (user) {
+
+  let userRoleInfo = {
+    username : user.username,
+    capabilities : roles[user.role]
+  }
+  console.log('userRoleInfo Object : ', userRoleInfo);
+
+  let token = jwt.sign(userRoleInfo, process.env.SECRET);
+  console.log('token : ', token);
+  // return token to be able to access all layers of our app 
+  return token;
+}; // end of genToken function 
+
+
 
 
 
