@@ -30,3 +30,11 @@ https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAut
 
 #### UML
 https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAuth/app-images/Lab12.jpg
+
+# .env File variables 
+- PORT=8080
+- SECRET=NAR9288
+- MONGOOSE_URI=mongodb://localhost:27017/serverVirM
+- CLIENT_ID=1edb6e0ec37085deeb38
+- CLIENT_SECRET=ec54777c48612f4a05a3d1a9b4051126ea7deb0d
+- SERVER_API=http://localhost:8080/oauth
