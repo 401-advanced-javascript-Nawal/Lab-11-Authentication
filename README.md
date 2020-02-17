@@ -29,3 +29,5 @@ https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAut
 https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/OAuth/app-images/github%20token.PNG
 
 #### UML
+https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/Lab15/app-images/Lab15-Part1.jpg
+https://github.com/401-advanced-javascript-Nawal/Lab-11-Authentication/blob/Lab15/app-images/Lab15-Part2.jpg
