@@ -1,4 +1,4 @@
-# Lab-12-OAuth
+# Lab-15-API-SERVER-AUTH
 
 ### Author: Nawal Suliman 
 
