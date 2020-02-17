@@ -30,6 +30,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.11",
     "morgan": "^1.9.1",
-    "superagent": "^5.2.1"
+    "superagent": "^5.2.1",
+    "supergoose": "^0.2.6",
+    "supertest": "^4.0.2"
   }
 }
