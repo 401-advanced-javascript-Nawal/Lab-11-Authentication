@@ -5,7 +5,8 @@ const morgan = require('morgan');
 
 // Auth 
 const router = require('./routes.js');
-
+// const apiRouter = require('../routes/api.js');
+// app.use(apiRouter);
 const app = express();
 
 // use logger 
