@@ -1,4 +1,6 @@
-const loggerMiddleware = require('../../lib/logger.js');
+'use strict';
+
+const loggerMiddleware = require('../../auth/logger.js');
 
 // Tested middleware needs to either be exported from the server or a separate module
 describe('logger middleware', () => {
